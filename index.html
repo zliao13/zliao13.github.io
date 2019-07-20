@@ -31,10 +31,10 @@ var path = d3.geoPath();
 
 var step = d3.scaleLinear()
              .domain([1, 8])
-             .range([58400, 1363400]);
+             .range([1363400, 58400]);
 
 var color= d3.scaleLinear()
-                .domain([58400, step(2), step(3), step(4), step(5), step(6), step(7), 1363400])
+                .domain([1363400, step(2), step(3), step(4), step(5), step(6), step(7), 58400])
                 .range(['#d73027', '#f46d43', '#fdae61', '#fee08b', '#d9ef8b', '#a6d96a', '#66bd63', '#1a9850'])
                 .interpolate(d3.interpolateHcl);
   
