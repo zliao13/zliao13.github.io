@@ -33,9 +33,15 @@ var step = d3.scaleLinear()
              .domain([1, 8])
              .range([1363400, 58400]);
 
+/*
 var color= d3.scaleLinear()
                 .domain([1363400, step(2), step(3), step(4), step(5), step(6), step(7), 58400])
                 .range(['#d73027', '#f46d43', '#fdae61', '#fee08b', '#d9ef8b', '#a6d96a', '#66bd63', '#1a9850'])
+                .interpolate(d3.interpolateHcl); */
+
+var color = d3.scaleLinear()
+                .domain([1338325, 450000, 104300])
+                .range(['#d73027', '#fee08b', '#1a9850'])
                 .interpolate(d3.interpolateHcl);
   
 
@@ -71,7 +77,7 @@ d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
 		  return 5;
 	 })
 	 .style("fill", function(d) {
-      return color(d["2018-06"]);
+      return color(d["2018"]);
   })	
 	 .style("opacity", 1);
 
