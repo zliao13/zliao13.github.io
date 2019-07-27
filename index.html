@@ -10,6 +10,19 @@
   pointer-events: none;
 }
 
+div.tooltip {   
+  position: absolute;           
+  text-align: center;           
+  width: 60px;                  
+  height: 28px;                 
+  padding: 2px;             
+  font: 12px sans-serif;        
+  background: white;   
+  border: 0px;      
+  border-radius: 8px;           
+  pointer-events: none;         
+}
+
 </style>
 <svg width="960" height="650"></svg>
 <script src='https://d3js.org/d3.v4.min.js'></script>
@@ -79,7 +92,22 @@ d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
 	 .style("fill", function(d) {
       return color(d["2018"]);
   })	
-	 .style("opacity", 1);
+	 .style("opacity", 1)
+   .on("mouseover", function(d) {      
+      div.transition()        
+           .duration(200)      
+           .style("opacity", .9);      
+           div.html(d["RegionName"] + "<br/>"  + d["2018"])
+           .style("left", (d3.event.pageX) + "px")     
+           .style("top", (d3.event.pageY - 28) + "px");    
+  })   
+
+    // fade out tooltip on mouse out               
+    .on("mouseout", function(d) {       
+        div.transition()        
+           .duration(500)      
+           .style("opacity", 0);   
+    });
 
    //add function to update image
 
