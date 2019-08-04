@@ -219,7 +219,7 @@ display: flex;
 
 
 <center><svg width="1280" height="768" id="svg1"></svg></center>
-<svg width="1300" height="768" id="svg2"></svg>
+<svg width="1330" height="768" id="svg2"></svg>
 <center><svg width="1280" height="728" id="svg3"></svg></center>
 
 
@@ -516,7 +516,7 @@ display: flex;
                 selectAll("circle")
                     .data(data)
                     .attr("r", function(d) {
-                        return radius(d[value]);
+                        return 1.5 * radius(d[value]);
                     })
                     .style("fill", function(d) {
                         return color(d[value]);
